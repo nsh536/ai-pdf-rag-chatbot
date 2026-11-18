@@ -1,0 +1,220 @@
+
+/* ===== GLOBAL THEME ===== */
+
+.stApp {
+    background:
+        radial-gradient(circle at 10% 10%, #34245f 0%, transparent 35%),
+        radial-gradient(circle at 90% 80%, #163c68 0%, transparent 35%),
+        linear-gradient(135deg, #0b1020, #15152e 55%, #101b32);
+
+    color: #f8fafc;
+}
+
+/* Main container */
+
+.block-container {
+    max-width: 1100px;
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+}
+
+/* Hide default Streamlit decoration */
+
+#MainMenu {
+    visibility: hidden;
+}
+
+footer {
+    visibility: hidden;
+}
+
+header[data-testid="stHeader"] {
+    background: transparent;
+}
+
+/* Glass cards */
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    padding: 22px;
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.20);
+}
+
+/* Header */
+
+.hero-title {
+    font-size: 42px;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: -1.5px;
+}
+
+.hero-gradient {
+    background: linear-gradient(90deg, #a78bfa, #60a5fa);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Subtitle */
+
+.hero-subtitle {
+    color: #aab4d0;
+    font-size: 15px;
+}
+
+/* Chat messages */
+
+div[data-testid="stChatMessage"] {
+    background: rgba(255, 255, 255, 0.055);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 18px;
+    padding: 15px;
+    margin-bottom: 14px;
+}
+
+/* Chat input */
+
+div[data-testid="stChatInput"] {
+    border: 1px solid rgba(167, 139, 250, 0.45);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+/* Buttons */
+
+.stButton > button {
+    border-radius: 12px;
+    border: 1px solid rgba(167, 139, 250, 0.45);
+    background: linear-gradient(135deg, #7658ea, #4f72df);
+    color: white;
+    font-weight: 600;
+    transition: 0.25s ease;
+}
+
+.stButton > button:hover {
+    border-color: #c4b5fd;
+    box-shadow: 0 0 18px rgba(139, 92, 246, 0.35);
+    transform: translateY(-2px);
+}
+
+/* Sidebar */
+
+section[data-testid="stSidebar"] {
+    background: rgba(15, 20, 43, 0.94);
+    border-right: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* Text colors */
+
+.stMarkdown, label, p {
+    color: #e5e7eb;
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #6555a8;
+    border-radius: 10px;
+}
+
+
+/* =====================================
+   DOCUMIND AI - CHAT INTERFACE
+===================================== */
+
+/* Common chat message styling */
+
+div[data-testid="stChatMessage"] {
+    border-radius: 18px;
+    padding: 20px;
+    margin-top: 14px;
+    margin-bottom: 18px;
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    transition: all 0.25s ease;
+}
+
+/* User message bubble */
+
+div[data-testid="stChatMessage"]:has(
+    [data-testid="chatAvatarIcon-user"]
+) {
+    background: linear-gradient(
+        135deg,
+        rgba(99, 102, 241, 0.22),
+        rgba(139, 92, 246, 0.16)
+    );
+
+    border: 1px solid rgba(167, 139, 250, 0.35);
+    margin-left: 12%;
+}
+
+/* Assistant message bubble */
+
+div[data-testid="stChatMessage"]:has(
+    [data-testid="chatAvatarIcon-assistant"]
+) {
+    background: rgba(255, 255, 255, 0.065);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    margin-right: 5%;
+}
+
+/* Chat message typography */
+
+div[data-testid="stChatMessage"] p {
+    color: #e5e7eb;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+/* Headings inside AI responses */
+
+div[data-testid="stChatMessage"] h1,
+div[data-testid="stChatMessage"] h2,
+div[data-testid="stChatMessage"] h3 {
+    color: #c4b5fd;
+    font-weight: 700;
+}
+
+/* Code blocks inside AI responses */
+
+div[data-testid="stChatMessage"] pre {
+    background: rgba(5, 10, 25, 0.85);
+    border: 1px solid rgba(167, 139, 250, 0.2);
+    border-radius: 12px;
+}
+
+/* Inline code */
+
+div[data-testid="stChatMessage"] code {
+    color: #93c5fd;
+}
+
+/* Chat input improvement */
+
+div[data-testid="stChatInput"] {
+    border: 1px solid rgba(167, 139, 250, 0.5);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.18);
+}
+
+div[data-testid="stChatInput"] textarea {
+    color: white;
+    font-size: 15px;
+}
+
+/* Chat message hover */
+
+div[data-testid="stChatMessage"]:hover {
+    border-color: rgba(167, 139, 250, 0.35);
+}
