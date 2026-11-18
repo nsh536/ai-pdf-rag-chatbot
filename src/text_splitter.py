@@ -1,5 +1,5 @@
 
-from pdf_loader import extract_text_from_pdf
+from .pdf_loader import extract_text_from_pdf
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 

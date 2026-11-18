@@ -6,8 +6,8 @@ import faiss
 import numpy as np
 from sentence_transformers import SentenceTransformer
 
-from pdf_loader import extract_text_from_pdf
-from text_splitter import split_text_into_chunks
+from .pdf_loader import extract_text_from_pdf
+from .text_splitter import split_text_into_chunks
 
 
 # Project paths

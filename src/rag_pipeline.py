@@ -1,10 +1,13 @@
 
 import os
+import time
+
 from dotenv import load_dotenv
 from google import genai
 from sentence_transformers import SentenceTransformer
 
-from vector_store import load_vector_store, search_similar_chunks
+from .vector_store import load_vector_store, search_similar_chunks
+
 
 # Load environment variables
 load_dotenv()
@@ -17,9 +20,11 @@ if not api_key:
 
 client = genai.Client(api_key=api_key)
 
+
 # Load embedding model
 print("Loading embedding model...")
 embedding_model = SentenceTransformer("all-MiniLM-L6-v2")
+
 
 # Load existing FAISS database
 print("Loading FAISS vector database...")
@@ -69,13 +74,31 @@ Question:
 Answer:
 """
 
-    # Step 4: Generate answer using Gemini
-    response = client.models.generate_content(
-        model="gemini-3.8-flash",
-        contents=prompt
-    )
+    # Step 4: Generate answer with automatic retry
+    for attempt in range(3):
 
-    return response.text
+        try:
+            response = client.models.generate_content(
+                model="gemini-3.8-flash",
+                contents=prompt
+            )
+
+            return response.text
+
+        except Exception as error:
+
+            error_message = str(error)
+
+            if "503" in error_message and attempt < 2:
+
+                print(
+                    f"Gemini busy. Retrying... ({attempt + 1}/3)"
+                )
+
+                time.sleep(3)
+
+            else:
+                raise
 
 
 def main():
