@@ -1,4 +1,4 @@
-
+import streamlit as st
 import os
 import time
 import random
@@ -19,9 +19,14 @@ load_dotenv()
 api_key = os.getenv("GEMINI_API_KEY")
 
 if not api_key:
-    raise ValueError(
-        "Gemini API key not found! Check your .env file."
-    )
+    try:
+        api_key = st.secrets["GEMINI_API_KEY"]
+    except Exception:
+        api_key = None
+
+if not api_key:
+    raise ValueError("Gemini API key not found!")
+
 
 client = genai.Client(api_key=api_key)
 
