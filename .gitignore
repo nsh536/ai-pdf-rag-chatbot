@@ -5,3 +5,5 @@ __pycache__/
 data/
 *.faiss
 *.pkl
+deploy-test/
+.streamlit/secrets.toml
